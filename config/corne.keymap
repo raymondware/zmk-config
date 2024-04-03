@@ -105,12 +105,12 @@
 
 / {
     behaviors {
-      &mt {
+      mt {
         flavor = "hold-preferred";
         tapping-term-ms = <150>;
       };
 
-      &lt {
+      lt {
         flavor = "balanced";
         tapping-term-ms = <150>;
       };
