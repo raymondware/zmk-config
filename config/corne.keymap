@@ -105,15 +105,6 @@
 
 / {
     behaviors {
-      mt {
-        flavor = "hold-preferred";
-        tapping-term-ms = <150>;
-      };
-
-      lt {
-        flavor = "balanced";
-        tapping-term-ms = <150>;
-      };
         aml: alpha_mods_l {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
