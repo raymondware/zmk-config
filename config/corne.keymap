@@ -105,6 +105,7 @@
   };
 
   // Key Bindings Configuration
+  bindings = <
     &kp Q,        &kp W,        &kp E,        &kp R,        &kp T,        // LT0, LT1, LT2, LT3, LT4
     &kp A,        &kp S,        &kp D,        &kp F,        &kp G,        // LM0, LM1, LM2, LM3, LM4
     &mo SYM,      &kp Z,        &kp X,        &kp C,        &kp V,        // LB0, LB1, LB2, LB3, LB4
@@ -115,6 +116,7 @@
 
     &kp SPC,      &none,        &mo SYM,      // LH2, LH1, LH0
     &none,        &kp ENT,      &kp BKSP      // RH0, RH1, RH2
+  >;
 
 };
 // Root devicetree node end
