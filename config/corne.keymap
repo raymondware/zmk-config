@@ -85,12 +85,61 @@
 / {
 
   combos {
+
     compatible = "zmk,combos";
 
     combo_esc {
       timeout-ms = <50>;
       key-positions = <LT4 LT3>;
       bindings = <&kp ESC>;
+    };
+
+    combo_lshift {
+      timeout-ms = <50>; 
+      key-positions = <LM4 LM3>;
+      bindings = <&kp LSHIFT>;
+    };
+
+    combo_rshift {
+      timeout-ms = <50>;
+      key-positions = <RM4 RM3>;
+      bindings = <&kp RSHIFT>;
+    };
+
+    combo_lctrl {
+      timeout-ms = <50>;
+      key-positions = <LB4 LB3>;
+      bindings = <&kp LCTRL>;
+    };
+
+    combo_rctrl {
+      timeout-ms = <50>;
+      key-positions = <RB4 RB3>;
+      bindings = <&kp RCTRL>;
+    };
+
+    combo_lalt {
+      timeout-ms = <50>;
+      key-positions = <LB3 LB2>;
+      bindings = <&kp LALT>;
+    };
+
+    combo_ralt {
+      timeout-ms = <50>;
+      key-positions = <RB3 RB2>;
+      bindings = <&kp RALT>;
+    };
+
+    combo_lgui {
+      timeout-ms = <50>;
+      key-positions = <LM4 LB4>;
+      bindings = <&kp GUI>;
+    };
+
+    combo_rbspc {
+      timeout-ms = <50>;
+      key-positions = <RT4 RT3>;
+      bindings = <&kp BACKSPACE>;
     };
   };
 
