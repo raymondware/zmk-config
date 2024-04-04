@@ -110,7 +110,7 @@
 
         &kp Y        &kp U        &kp I        &kp O        &kp P           // RT0, RT1, RT2, RT3, RT4
         &kp H        &kp J        &kp K        &kp L        &kp SEMICOLON   // RM0, RM1, RM2, RM3, RM4
-        &kp N        &kp M        &kp COMMA    &kp DOT      &kp SLSH        // RB0, RB1, RB2, RB3, RB4
+        &kp N        &kp M        &kp COMMA    &kp DOT      &kp SLASH       // RB0, RB1, RB2, RB3, RB4
 
         &kp CTL      &kp SPC        &kp SPC      // LH2, LH1, LH0
         &kp ENT      &kp ENT        &kp BKSP     // RH0, RH1, RH2
