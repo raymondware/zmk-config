@@ -98,16 +98,16 @@
       bindings = <&kp ESC>;
     };
 
-    combo_lshift {
+    combo_lshift_sticky {
       timeout-ms = <50>; 
       key-positions = <LM4 LM3>;
-      bindings = <&kp LSHIFT>;
+      bindings = <&sk LSHIFT>;
     };
 
-    combo_rshift {
+    combo_rshift_sticky {
       timeout-ms = <50>;
       key-positions = <RM4 RM3>;
-      bindings = <&kp RSHIFT>;
+      bindings = <&sk RSHIFT>;
     };
 
     combo_lctrl {
