@@ -112,8 +112,8 @@
         &kp H        &kp J        &kp K        &kp L        &kp SCLN     // RM0, RM1, RM2, RM3, RM4
         &kp N        &kp M        &kp COMMA    &kp DOT      &kp SLSH     // RB0, RB1, RB2, RB3, RB4
 
-        &kp SPC      &none        &mo SYM      // LH2, LH1, LH0
-        &none        &kp ENT      &kp BKSP      // RH0, RH1, RH2
+        &kp CTL      &none        &kp SPC      // LH2, LH1, LH0
+        &kp ENT      &none        &kp BKSP      // RH0, RH1, RH2
       >;
     };
   };
