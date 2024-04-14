@@ -149,19 +149,19 @@
     combo_nav {
       timeout-ms = <50>;
       key-positions = <RH1 RM1>;
-      bindings = <&tl NAV>;
+      bindings = <&mo NAV>;
     };
 
     combo_sym {
       timeout-ms = <50>;
       key-positions = <RH1 RM2>;
-      bindings = <&tl SYM>;
+      bindings = <&mo SYM>;
     };
 
     combo_num {
       timeout-ms = <50>;
       key-positions = <RH1 RM3>;
-      bindings = <&tl NUM>;
+      bindings = <&mo NUM>;
     };
   };
 
