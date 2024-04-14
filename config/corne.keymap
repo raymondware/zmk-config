@@ -199,14 +199,16 @@
     //                             │    CTL      │   TO(DEF)   │    Space    │   │    Enter    │   TO(NUM)   │   Bksp      │
     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 
+   
     symbol_layer {
       bindings = <
-      &kp 1        &kp 2        &kp 3        &kp 4        &kp 5        &kp 6        &kp 7        &kp 8        &kp 9        &kp 0
-      &kp GRAVE    &kp TILDE    &kp LEFTBRACE &kp RIGHTBRACE &kp MINUS  &kp EQUAL    &kp LEFTBRACE &kp RIGHTBRACE &kp LEFTPAREN &kp RIGHTPAREN
-      &kp APOSTROPHE &kp QUOTE &kp LEFTANGLE &kp RIGHTANGLE &kp UNDERSCORE &kp PIPE &kp COLON &kp QUOTE &kp QUESTION &kp GRAVE
-                             &kp LCTRL    &to DEF     &kp SPACE        &kp ENTER    &to NUM      &kp BACKSPACE
+        &kp EXCL       &kp AT       &kp HASH      &kp DOLLAR    &kp PERCENT  &kp CARET    &kp AMP       &kp ASTERISK &kp LPAR     &kp RPAR
+        &kp GRAVE      &kp TILDE    &kp LBRKT     &kp RBRKT     &kp MINUS    &kp EQUAL    &kp LCBR      &kp RCBR     &kp LBKT     &kp RBKT
+        &kp SQT        &kp DQT      &kp COMMA     &kp DOT       &kp SLASH    &kp PIPE     &kp COLON     &kp SEMI     &kp BSLSH    &kp QMARK
+        &kp LCTRL      &mo DEF      &kp SPACE     &kp ENTER     &to NUM      &kp BKSP
       >;
     };
+
 
     // Navigation Layer
     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
@@ -219,14 +221,16 @@
     //                            │     CTL      │   TO(FN)    │    Space    │   │    Enter    │   TO(DEF)   │   Bksp      │
     //                            ╰──────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
     
+    
     navigation_layer {
       bindings = <
-      &kp 1        &kp 2        &kp 3        &kp 4        &kp 5        &kp 6        &kp 7        &kp 8        &kp 9        &kp 0
-      &kp F1       &kp F2       &kp F3       &kp F4       &kp F5       &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &kp F10
-      &kp F6       &kp F7       &kp F8       &kp F9       &kp F10      &kp F11      &kp F12      &kp LEFT     &kp LEFT     &kp RIGHT
-                           &kp LCTRL    &to SYM     &kp SPACE        &kp ENTER    &to FN       &kp BACKSPACE
+        &kp F1        &kp F2       &kp F3        &kp F4        &kp F5        &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &kp F10
+        &kp F6        &kp F7       &kp F8        &kp F9        &kp F10       &kp F11      &kp F12      &kp HOME     &kp PG_UP    &kp END
+        &kp INSERT    &kp DELETE   &kp CAPS      &kp PSCRN     &kp SLCK      &kp PAUSE    &kp ESC      &kp PG_DN    &kp NUHS     &kp NUBS
+        &kp LCTRL     &to SYM      &kp SPACE     &kp ENTER     &to DEF       &kp BKSP
       >;
     };
+
   };
 
 
