@@ -224,9 +224,9 @@
     
     navigation_layer {
       bindings = <
-        &kp F1        &kp F2       &kp F3        &kp F4        &kp F5        &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &kp F10
-        &kp F6        &kp F7       &kp F8        &kp F9        &kp F10       &kp F11      &kp F12      &kp HOME     &kp PG_UP    &kp END
-        &kp INSERT    &kp DELETE   &kp CAPS      &kp PSCRN     &kp SLCK      &kp PAUSE    &kp ESC      &kp PG_DN    &kp NUHS     &kp NUBS
+        &kp F1        &kp F2       &kp F3        &kp F4        &kp F5        &kp LEFT           &kp DOWN     &kp UP       &kp RIGHT    &kp F10
+        &kp F6        &kp F7       &kp F8        &kp F9        &kp F10       &kp F11            &kp F12      &kp HOME     &kp PG_UP    &kp END
+        &kp INSERT    &kp DELETE   &kp CAPS      &kp PSCRN     &kp SLCK      &kp PAUSE_BREAK    &kp ESC      &kp PG_DN    &kp NUHS     &kp NUBS
         &kp LCTRL     &to SYM      &kp SPACE     &kp ENTER     &to DEF       &kp BKSP
       >;
     };
