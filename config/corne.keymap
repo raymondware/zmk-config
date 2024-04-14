@@ -204,7 +204,7 @@
       bindings = <
         &kp EXCL       &kp AT       &kp HASH      &kp DOLLAR    &kp PERCENT  &kp CARET    &kp AMPS      &kp ASTERISK &kp LPAR     &kp RPAR
         &kp GRAVE      &kp TILDE    &kp LBKT      &kp RBKT      &kp MINUS    &kp EQUAL    &kp LBRC      &kp RBRC     &kp LBKT     &kp RBKT
-        &kp SQT        &kp DQT      &kp LT        &kp RT        &kp UNDER    &kp PIPE     &kp COLON     &kp SEMI     &kp SLASH    &kp BACKSLASH
+        &kp SQT        &kp DQT      &kp LT        &kp RT        &kp UNDERSCORE    &kp PIPE     &kp COLON     &kp SEMI     &kp SLASH    &kp BACKSLASH
         &kp LCTRL      &mo DEF      &kp SPACE     &kp ENTER     &to NUM      &kp BKSP
       >;
     };
