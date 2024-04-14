@@ -146,22 +146,29 @@
     };
 
     // toggle layers
+
+    combo_sym {
+      timeout-ms = <50>;
+      key-positions = <RM0 RM1>;
+      bindings = <&to SYM>;
+    };
+    
     combo_nav {
       timeout-ms = <50>;
-      key-positions = <RH1 RM1>;
-      bindings = <&mo NAV>;
+      key-positions = <RB1 RB2>;
+      bindings = <&to NAV>;
     };
 
     combo_sym {
       timeout-ms = <50>;
-      key-positions = <RH1 RM2>;
-      bindings = <&mo SYM>;
+      key-positions = <RB0 RB1>;
+      bindings = <&to SYM>;
     };
 
     combo_num {
       timeout-ms = <50>;
-      key-positions = <RH1 RM3>;
-      bindings = <&mo NUM>;
+      key-positions = <RB2 RB3>;
+      bindings = <&to NUM>;
     };
   };
 
@@ -176,7 +183,7 @@
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       // │      Z      │     X       │     C       │     V       │     B       │   │     N       │     M       │    ,        │    .        │    /        │
       // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-      //                              │    CTL     │   TO(NAV)   │    Space    │   │    Enter    │   TO(SYM)   │   Bksp      │
+      //                              │    CTL     │   MO(SYM)   │    Space    │   │    Enter    │   MO(NUM)   │   Bksp      │
       //                              ╰────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
   
       // Key Bindings Configuration
@@ -184,7 +191,7 @@
         &kp Q        &kp W        &kp E        &kp R        &kp T        &kp Y        &kp U        &kp I        &kp O        &kp P
         &kp A        &kp S        &kp D        &kp F        &kp G        &kp H        &kp J        &kp K        &kp L        &kp SEMICOLON
         &kp Z        &kp X        &kp C        &kp V        &kp B        &kp N        &kp M        &kp COMMA    &kp DOT      &kp SLASH
-                               &kp LCTRL    &to NAV     &kp SPACE        &kp ENTER    &to SYM      &kp BACKSPACE
+                               &kp LCTRL    &mo SYM     &kp SPACE        &kp ENTER    &mo NUM      &kp BACKSPACE
       >;
     };
 
@@ -196,7 +203,7 @@
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     // │     '       │     "       │     <       │     >       │     _       │   │     |       │     :       │     ;       │     ?       │    /        │
     // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-    //                             │    CTL      │   TO(DEF)   │    Space    │   │    Enter    │   TO(NUM)   │   Bksp      │
+    //                             │    CTL      │    SHIFT    │    Space    │   │    Enter    │    SHIFT    │   Bksp      │
     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 
    
@@ -205,7 +212,7 @@
         &kp EXCL       &kp AT       &kp HASH      &kp DOLLAR    &kp PERCENT  &kp CARET    &kp AMPS      &kp ASTERISK &kp LPAR     &kp RPAR
         &kp GRAVE      &kp TILDE    &kp LBKT      &kp RBKT      &kp MINUS    &kp EQUAL    &kp LBRC      &kp RBRC     &kp LBKT     &kp RBKT
         &kp SQT        &kp DQT      &kp LT        &kp GT        &kp UNDER    &kp PIPE     &kp COLON     &kp SEMI     &kp SLASH    &kp BACKSLASH
-        &kp LCTRL      &mo DEF      &kp SPACE     &kp ENTER     &to NUM      &kp BKSP
+        &kp LCTRL      &kp SHIFT      &kp SPACE     &kp ENTER     &kp SHIFT      &kp BKSP
       >;
     };
 
@@ -218,7 +225,7 @@
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     // │     F6      │     F7      │     F8      │     F9      │     F10     │   │     F11     │     F12     │     LEFT    │    LEFT     │     RIGHT   │
     // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-    //                            │     CTL      │   TO(FN)    │    Space    │   │    Enter    │   TO(DEF)   │   Bksp      │
+    //                            │     CTL      │   SHIFT     │    Space    │   │    Enter    │    SHIFT    │   Bksp      │
     //                            ╰──────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
     
     
@@ -227,7 +234,7 @@
         &kp F1        &kp F2       &kp F3        &kp F4        &kp F5        &kp LEFT           &kp DOWN     &kp UP       &kp RIGHT    &kp F10
         &kp F6        &kp F7       &kp F8        &kp F9        &kp F10       &kp F11            &kp F12      &kp HOME     &kp PG_UP    &kp END
         &kp INSERT    &kp DELETE   &kp CAPS      &kp PSCRN     &kp SLCK      &kp PAUSE_BREAK    &kp ESC      &kp PG_DN    &kp NUHS     &kp NUBS
-        &kp LCTRL     &to SYM      &kp SPACE     &kp ENTER     &to DEF       &kp BKSP
+        &kp LCTRL     &kp SHIFT      &kp SPACE     &kp ENTER     &kp SHIFT       &kp BKSP
       >;
     };
 
