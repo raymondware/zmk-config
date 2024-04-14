@@ -194,7 +194,7 @@
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     // │     `       │     ~       │     [       │     ]       │     -       │   │     +       │     {       │     }       │     (       │    )        │
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    // │     '       │     "       │     <       │     >       │     _       │   │     |       │     :       │     "       │     ?       │    `        │
+    // │     '       │     "       │     <       │     >       │     _       │   │     |       │     :       │     ;       │     ?       │    /        │
     // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
     //                             │    CTL      │   TO(DEF)   │    Space    │   │    Enter    │   TO(NUM)   │   Bksp      │
     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
@@ -203,8 +203,8 @@
     symbol_layer {
       bindings = <
         &kp EXCL       &kp AT       &kp HASH      &kp DOLLAR    &kp PERCENT  &kp CARET    &kp AMPS      &kp ASTERISK &kp LPAR     &kp RPAR
-        &kp GRAVE      &kp TILDE    &kp LBRKT     &kp RBRKT     &kp MINUS    &kp EQUAL    &kp LCBR      &kp RCBR     &kp LBKT     &kp RBKT
-        &kp SQT        &kp DQT      &kp COMMA     &kp DOT       &kp SLASH    &kp PIPE     &kp COLON     &kp SEMI     &kp BSLSH    &kp QMARK
+        &kp GRAVE      &kp TILDE    &kp LBKT      &kp RBKT      &kp MINUS    &kp EQUAL    &kp LCBR      &kp RCBR     &kp LBKT     &kp RBKT
+        &kp SQT        &kp DQT      &kp LT        &kp RT        &kp UNDER    &kp PIPE     &kp COLON     &kp SEMI     &kp BSLH     &kp FSLH
         &kp LCTRL      &mo DEF      &kp SPACE     &kp ENTER     &to NUM      &kp BKSP
       >;
     };
