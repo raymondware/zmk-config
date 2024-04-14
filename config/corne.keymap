@@ -109,6 +109,12 @@
       bindings = <&sk RSHIFT>;
     };
 
+    combo_tab {
+      timeout-ms = <50>;
+      key-positions = <LM3 LM2>;
+      bindings = <&kp TAB>;
+    };
+
     combo_lctrl {
       timeout-ms = <50>;
       key-positions = <LB4 LB3>;
@@ -147,10 +153,10 @@
 
     // toggle layers
 
-    combo_sym {
+    combo_def {
       timeout-ms = <50>;
       key-positions = <RM0 RM1>;
-      bindings = <&to SYM>;
+      bindings = <&to DEF>;
     };
     
     combo_nav {
