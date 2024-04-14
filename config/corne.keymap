@@ -202,7 +202,7 @@
    
     symbol_layer {
       bindings = <
-        &kp EXCL       &kp AT       &kp HASH      &kp DOLLAR    &kp PERCENT  &kp CARET    &kp AMP       &kp ASTERISK &kp LPAR     &kp RPAR
+        &kp EXCL       &kp AT       &kp HASH      &kp DOLLAR    &kp PERCENT  &kp CARET    &kp AMPS      &kp ASTERISK &kp LPAR     &kp RPAR
         &kp GRAVE      &kp TILDE    &kp LBRKT     &kp RBRKT     &kp MINUS    &kp EQUAL    &kp LCBR      &kp RCBR     &kp LBKT     &kp RBKT
         &kp SQT        &kp DQT      &kp COMMA     &kp DOT       &kp SLASH    &kp PIPE     &kp COLON     &kp SEMI     &kp BSLSH    &kp QMARK
         &kp LCTRL      &mo DEF      &kp SPACE     &kp ENTER     &to NUM      &kp BKSP
