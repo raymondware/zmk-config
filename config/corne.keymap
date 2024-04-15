@@ -99,6 +99,7 @@
   macros {
     vim_format_doc: vim_format_doc {
       compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
       bindings = <&macro_press &kp LCTRL>,
       <&macro_tap &kp C>,
       <&macro_release &kp LCTRL>,
