@@ -22,9 +22,8 @@
 // Layer aliases
 #define DEF 0
 #define SYM 1
-#define NUM 2
-// #define FN  3
-#define NAV 3
+#define NAV 2
+#define NUMB 3
 
 #define LT0  4  // left-top row
 #define LT1  3
@@ -184,7 +183,7 @@
     combo_num {
       timeout-ms = <50>;
       key-positions = <RB2 RB3>;
-      bindings = <&to NUM>;
+      bindings = <&to NUMB>;
     };
   };
 
@@ -199,7 +198,7 @@
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       // │      Z      │     X       │     C       │     V       │     B       │   │     N       │     M       │    ,        │    .        │    /        │
       // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-      //                              │    CTL     │   MO(SYM)   │    Space    │   │    Enter    │   MO(nav)   │   Bksp      │
+      //                              │    CTL     │   MO(SYM)   │    Space    │   │    Enter    │   MO(NUMB)  │   Bksp      │
       //                              ╰────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
   
       // Key Bindings Configuration
@@ -207,7 +206,7 @@
         &kp Q        &kp W        &kp E        &kp R        &kp T        &kp Y        &kp U        &kp I        &kp O        &kp P
         &kp A        &kp S        &kp D        &kp F        &kp G        &kp H        &kp J        &kp K        &kp L        &kp SEMICOLON
         &kp Z        &kp X        &kp C        &kp V        &kp B        &kp N        &kp M        &kp COMMA    &kp DOT      &kp SLASH
-                               &kp LCTRL    &mo SYM     &kp SPACE        &kp ENTER    &mo NAV      &kp BACKSPACE
+                               &kp LCTRL    &mo SYM     &kp SPACE        &kp ENTER    &mo NUMB     &kp BACKSPACE
       >;
     };
 
@@ -265,13 +264,14 @@
     //                             │    LCTRL    │   LSHIFT    │    Space    │   │    Enter    │   RSHIFT    │   Bksp      │
     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
     
-     
-    bindings = <
-      &kp N1        &kp N2       &kp N3        &kp N4        &kp N5        &kp N6       &kp N7       &kp N8       &kp N9       &kp N0
-      &kp ESC       &kp TAB      &kp MINUS     &kp PLUS      &kp SLASH     &kp ASTERISK &kp PERCENT  &kp EQUAL    &kp DOT      &kp COMMA
-      &none         &none        &none         &none         &none         &none        &none        &none        &none        &none
-      &kp LCTRL     &kp LSHIFT      &kp SPACE     &kp ENTER     &kp RSHIFT       &kp BKSP
-    >;
+    number_layer {
+      bindings = <
+        &kp N1        &kp N2       &kp N3        &kp N4        &kp N5        &kp N6       &kp N7       &kp N8       &kp N9       &kp N0
+        &kp ESC       &kp TAB      &kp MINUS     &kp PLUS      &kp SLASH     &kp ASTERISK &kp PERCENT  &kp EQUAL    &kp DOT      &kp COMMA
+        &none         &none        &none         &none         &none         &none        &none        &none        &none        &none
+        &kp LCTRL     &kp LSHIFT      &kp SPACE     &kp ENTER     &kp RSHIFT       &kp BKSP
+      >;
+    };
   };
 
 
