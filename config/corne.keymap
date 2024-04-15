@@ -200,13 +200,13 @@
     combo_first_non_blank {
       timeout-ms = <50>;
       key-positions = <RT0 RT1>;
-      bindings = <&kp 0>;
+      bindings = <&kp CARET>;
     };
 
     combo_last_non_blank {
       timeout-ms = <50>;
       key-positions = <RT1 RT2>;
-      bindings = <&kp $>;
+      bindings = <&kp DOLLAR>;
     };
 
     combo_format_doc {
