@@ -27,7 +27,7 @@
 
 #define LT0  4  // left-top row
 #define LT1  3
-#define LT2  2
+#define LT2  3
 #define LT3  1
 #define LT4  0
 
@@ -94,6 +94,16 @@
     quick-tap-ms = <0>;
     flavor = "tap-preferred";
     bindings = <&kp>, <&kp>;
+  };
+
+  macros {
+    vim_format_doc: vim_format_doc {
+      compatible: "zmk, behaviors-macro";
+      bindings = <&macro_press &kp CTL>,
+      <&macro_tap &kp C>,
+      <&macro_release &kp CTL>,
+      <&macro_tap &kp F>;
+    };
   };
 
   combos {
@@ -184,6 +194,31 @@
       timeout-ms = <50>;
       key-positions = <RB2 RB3>;
       bindings = <&to NUMB>;
+    };
+
+    // vim combos
+    combo_first_non_blank {
+      timeout-ms = <50>;
+      key-positions = <RT0 RT1>;
+      bindings = <&kp 0>;
+    };
+
+    combo_last_non_blank {
+      timeout-ms = <50>;
+      key-positions = <RT1 RT2>;
+      bindings = <&kp $>;
+    };
+
+    combo_format_doc {
+      timeout-ms = <50>;
+      key-positions = <RT2 RT3>;
+      bindings = <&vim_format_doc>;
+    };
+
+    combo_comment_toggle {
+      timeout-ms = <50>;
+      key-positions = <RT3 RT4>;
+      bindings = <&kp G &kp C &kp C>;
     };
   };
 
