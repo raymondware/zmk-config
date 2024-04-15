@@ -99,9 +99,9 @@
   macros {
     vim_format_doc: vim_format_doc {
       compatible = "zmk,behavior-macro";
-      bindings = <&macro_press &kp CTL>,
+      bindings = <&macro_press &kp LCTRL>,
       <&macro_tap &kp C>,
-      <&macro_release &kp CTL>,
+      <&macro_release &kp LCTRL>,
       <&macro_tap &kp F>;
     };
   };
