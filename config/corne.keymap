@@ -221,6 +221,12 @@
       key-positions = <RT3 RT4>;
       bindings = <&kp G &kp C &kp C>;
     };
+
+    combo_gui {
+      timeout-ms = <50>;
+      key-positions = <LH1 RH1>;
+      bindings = <&kp LGUI>;
+    };
   };
 
   keymap {
