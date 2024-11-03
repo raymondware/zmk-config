@@ -147,5 +147,7 @@ Follow the instructions provided in the ZMK Documentation to build the firmware 
 
 Flash the built firmware to your keyboard using the appropriate flashing tool for your microcontroller.
 
+## Contributing
+Contributions are welcome! If you have ideas to improve this configuration, please feel free to open an issue or submit a pull request. Your insights can help enhance the efficiency and usability of this layout for everyone.
 
 
