@@ -227,37 +227,6 @@
       key-positions = <LH1 RH1>;
       bindings = <&kp LGUI>;
     };
-
-    // Hyper key app launchers
-    combo_hyper_terminal {
-      timeout-ms = <50>;
-      key-positions = <LT0 LT1>;  // Q + W
-      bindings = <&kp LS(LC(LA(LGUI))) &kp T>;  // Hyper + T (Terminal)
-    };
-
-    combo_hyper_browser {
-      timeout-ms = <50>;
-      key-positions = <LT1 LT2>;  // W + E
-      bindings = <&kp LS(LC(LA(LGUI))) &kp B>;  // Hyper + B (Browser)
-    };
-
-    combo_hyper_slack {
-      timeout-ms = <50>;
-      key-positions = <LT2 LT3>;  // E + R
-      bindings = <&kp LS(LC(LA(LGUI))) &kp S>;  // Hyper + S (Slack)
-    };
-  };
-
-  behaviors {
-    hyper: hyper_key {
-      compatible = "zmk,behavior-hold-tap";
-      label = "HYPER_KEY";
-      #binding-cells = <2>;
-      tapping-term-ms = <200>;
-      quick-tap-ms = <150>;
-      flavor = "tap-preferred";
-      bindings = <&kp>, <&kp>;
-    };
   };
 
   keymap {
@@ -286,7 +255,7 @@
     // Symbol Layer
     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     // │     !       │     @       │     #       │     $       │     %       │   │     ^       │     &       │     *       │     -       │     \       │
-   &kp GRAVE      &kp TILDE    &kp LBKT      &kp RBKT      &kp MINUS    &kp EQUAL    &kp LBRC      &kp RBRC     &kp LBKT     &kp RBKT
+    &kp GRAVE      &kp TILDE    &kp LBKT      &kp RBKT      &kp MINUS    &kp EQUAL    &kp LBRC      &kp RBRC     &kp LBKT     &kp RBKT
     // │     `       │     ~       │     [       │     ]       │     -       │   │     +       │     {       │     }       │     (       │    )        │
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     // │     '       │     "       │     <       │     >       │     _       │   │     |       │     :       │     ;       │     ?       │    /        │
