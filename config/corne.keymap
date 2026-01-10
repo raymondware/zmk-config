@@ -27,7 +27,7 @@
 
 #define LT0  4  // left-top row
 #define LT1  3
-#define LT2  3
+#define LT2  2
 #define LT3  1
 #define LT4  0
 
