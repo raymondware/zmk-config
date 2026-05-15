@@ -1,0 +1,311 @@
+/*
+* Copyright (c) 2020 The ZMK Contributors
+*
+* SPDX-License-Identifier: MIT
+* Custom keymap for 42 key 6 col layout by Raymond Ware
+*/
+
+/*                              42 KEY MATRIX / LAYOUT MAPPING
+
+╭────────────────────────┬────────────────────────╮ ╭─────────────────────────┬─────────────────────────╮
+│  0   1   2   3   4   5 │  6   7   8   9  10  11 │ │ LT5 LT4 LT3 LT2 LT1 LT0 │ RT0 RT1 RT2 RT3 RT4 RT5 │
+│ 12  13  14  15  16  17 │ 18  19  20  21  22  23 │ │ LM5 LM4 LM3 LM2 LM1 LM0 │ RM0 RM1 RM2 RM3 RM4 RM5 │
+│ 24  25  26  27  28  29 │ 30  31  32  33  34  35 │ │ LB5 LB4 LB3 LB2 LB1 LB0 │ RB0 RB1 RB2 RB3 RB4 RB5 │
+╰───────────╮ 36  37  38 │ 39  40  41 ╭───────────╯ ╰───────────╮ LH2 LH1 LH0 │ RH0 RH1 RH2 ╭───────────╯
+            ╰────────────┴────────────╯   @raymondware  ╰─────────────┴─────────────╯             */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+// Layer aliases
+#define DEF 0
+#define SYM 1
+#define NAV 2
+#define NUMB 3
+
+#define LT0  5  // left-top row
+#define LT1  4
+#define LT2  3
+#define LT3  2
+#define LT4  1
+#define LT5  0
+
+#define RT0  6  // right-top row
+#define RT1  7
+#define RT2  8
+#define RT3  9
+#define RT4 10
+#define RT5 11
+
+#define LM0 17  // left-middle row
+#define LM1 16
+#define LM2 15
+#define LM3 14
+#define LM4 13
+#define LM5 12
+
+#define RM0 18  // right-middle row
+#define RM1 19
+#define RM2 20
+#define RM3 21
+#define RM4 22
+#define RM5 23
+
+#define LB0 29  // left-bottom row
+#define LB1 28
+#define LB2 27
+#define LB3 26
+#define LB4 25
+#define LB5 24
+
+#define RB0 30  // right-bottom row
+#define RB1 31
+#define RB2 32
+#define RB3 33
+#define RB4 34
+#define RB5 35
+
+#define LH0 38  // left thumb keys
+#define LH1 37
+#define LH2 36
+
+#define RH0 39  // right thumb keys
+#define RH1 40
+#define RH2 41
+
+#define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5  // left-hand keys
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5  // right-hand keys
+#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                                  // thumb keys
+
+&mt {
+  tapping-term = <400>;
+};
+
+// Root devicetree node start
+/ {
+
+  hm: homerow_mods {
+    compatible = "zmk,behavior-hold-tap";
+    label = "HOMEROW_MODS";
+    #binding-cells = <2>;
+    tapping-term-ms = <400>;
+    quick-tap-ms = <0>;
+    flavor = "tap-preferred";
+    bindings = <&kp>, <&kp>;
+  };
+
+  macros {
+    vim_format_doc: vim_format_doc {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&macro_press &kp LCTRL>,
+        <&macro_tap &kp C>,
+          <&macro_release &kp LCTRL>,
+            <&macro_tap &kp F>;
+    };
+  };
+
+  combos {
+
+    compatible = "zmk,combos";
+
+    // Keep useful combos but note that ESC and TAB now have dedicated keys
+
+    combo_lshift_sticky {
+      timeout-ms = <50>;
+      key-positions = <LM5 LM4>;
+      bindings = <&sk LSHIFT>;
+    };
+
+    combo_rshift_sticky {
+      timeout-ms = <50>;
+      key-positions = <RM5 RM4>;
+      bindings = <&sk RSHIFT>;
+    };
+
+    combo_lctrl {
+      timeout-ms = <50>;
+      key-positions = <LB5 LB4>;
+      bindings = <&kp LCTRL>;
+    };
+
+    combo_rctrl {
+      timeout-ms = <50>;
+      key-positions = <RB5 RB4>;
+      bindings = <&kp RCTRL>;
+    };
+
+    combo_lalt {
+      timeout-ms = <50>;
+      key-positions = <LB4 LB3>;
+      bindings = <&kp LALT>;
+    };
+
+    combo_ralt {
+      timeout-ms = <50>;
+      key-positions = <RB4 RB3>;
+      bindings = <&kp RALT>;
+    };
+
+    combo_lgui {
+      timeout-ms = <50>;
+      key-positions = <LM5 LB5>;
+      bindings = <&kp GUI>;
+    };
+
+    combo_rbspc {
+      timeout-ms = <50>;
+      key-positions = <RT5 RT4>;
+      bindings = <&kp BACKSPACE>;
+    };
+
+    // toggle layers
+
+    combo_def {
+      timeout-ms = <50>;
+      key-positions = <RM0 RM1>;
+      bindings = <&to DEF>;
+    };
+
+    combo_nav {
+      timeout-ms = <50>;
+      key-positions = <RB1 RB2>;
+      bindings = <&to NAV>;
+    };
+
+    combo_sym {
+      timeout-ms = <50>;
+      key-positions = <RB0 RB1>;
+      bindings = <&to SYM>;
+    };
+
+    combo_num {
+      timeout-ms = <50>;
+      key-positions = <RB2 RB3>;
+      bindings = <&to NUMB>;
+    };
+
+    // vim combos
+    combo_first_non_blank {
+      timeout-ms = <50>;
+      key-positions = <RT0 RT1>;
+      bindings = <&kp CARET>;
+    };
+
+    combo_last_non_blank {
+      timeout-ms = <50>;
+      key-positions = <RT1 RT2>;
+      bindings = <&kp DOLLAR>;
+    };
+
+    combo_format_doc {
+      timeout-ms = <50>;
+      key-positions = <RT2 RT3>;
+      bindings = <&vim_format_doc>;
+    };
+
+    combo_comment_toggle {
+      timeout-ms = <50>;
+      key-positions = <RT3 RT4>;
+      bindings = <&kp G &kp C &kp C>;
+    };
+
+    combo_gui {
+      timeout-ms = <50>;
+      key-positions = <LH1 RH1>;
+      bindings = <&kp LGUI>;
+    };
+  };
+
+  keymap {
+    compatible = "zmk,keymap";
+
+    default_layer {
+      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+      // │     ESC     │     Q       │     W       │     E       │     R       │     T       │   │     Y       │     U       │     I       │     O       │     P       │    DEL      │
+      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+      // │     TAB     │     A       │     S       │     D       │     F       │     G       │   │     H       │     J       │     K       │     L       │    ;        │  CAPS LOCK  │
+      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+      // │   GRAVE `   │     Z       │     X       │     C       │     V       │     B       │   │     N       │     M       │    ,        │    .        │    /        │   INSERT    │
+      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+      //                                            │    CTL      │   MO(SYM)   │    Space    │   │    Enter    │   MO(NUMB)  │   Bksp      │
+      //                                            ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+
+      // Key Bindings Configuration
+      bindings = <
+        &kp ESC      &kp Q        &kp W        &kp E        &kp R        &kp T        &kp Y        &kp U        &kp I        &kp O        &kp P        &kp DEL
+        &kp TAB      &hm LGUI A   &hm LALT S   &hm LCTRL D  &hm LSHIFT F &kp G        &kp H        &kp J        &kp K        &kp L        &mt LS(LC(LA(LGUI))) SEMICOLON   &kp CAPS
+        &kp GRAVE    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp N        &kp M        &kp COMMA    &kp DOT      &kp SLASH    &kp INS
+                                               &kp LCTRL    &mo SYM      &kp SPACE    &kp ENTER    &mo NUMB     &kp BACKSPACE
+      >;
+    };
+
+    // Symbol Layer
+    // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    // │    ESC      │     !       │     @       │     #       │     $       │     %       │   │     ^       │     &       │     *       │     (       │     )       │    DEL      │
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    // │    TAB      │     `       │     ~       │     [       │     ]       │     -       │   │     =       │     {       │     }       │     [       │    ]        │    none     │
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    // │    none     │     '       │     "       │     <       │     >       │     _       │   │     |       │     :       │     ;       │     /       │    \        │    none     │
+    // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+    //                                            │    CTL      │    SHIFT    │    Space    │   │    Enter    │    SHIFT    │   Bksp      │
+    //                                            ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+
+
+    symbol_layer {
+      bindings = <
+        &kp ESC        &kp EXCL       &kp AT       &kp HASH      &kp DOLLAR    &kp PERCENT  &kp CARET    &kp AMPS      &kp ASTERISK &kp LPAR     &kp RPAR     &kp DEL
+        &kp TAB        &kp GRAVE      &kp TILDE    &kp LBKT      &kp RBKT      &kp MINUS    &kp EQUAL    &kp LBRC      &kp RBRC     &kp LBKT     &kp RBKT     &none
+        &none          &kp SQT        &kp DQT      &kp LT        &kp GT        &kp UNDER    &kp PIPE     &kp COLON     &kp SEMI     &kp SLASH    &kp BACKSLASH &none
+                                                   &kp LCTRL     &kp LSHIFT    &kp SPACE    &kp ENTER    &kp RSHIFT    &kp BKSP
+      >;
+    };
+
+
+    // Navigation Layer
+    // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    // │    ESC      │     F1      │     F2      │     F3      │     F4      │     F5      │   │     F6      │     F7      │     F8      │     F9      │     F10     │    DEL      │
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    // │    TAB      │     F11     │     F12     │    none     │    none     │    none     │   │    LEFT     │    DOWN     │     UP      │    RIGHT    │    none     │  PG_UP      │
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    // │    none     │    none     │    none     │    none     │    none     │    none     │   │    HOME     │    END      │    none     │    none     │    none     │  PG_DN      │
+    // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+    //                                            │    LCTRL    │   LSHIFT    │    Space    │   │    Enter    │   RSHIFT    │   Bksp      │
+    //                                            ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+
+
+    navigation_layer {
+      bindings = <
+        &kp ESC       &kp F1        &kp F2       &kp F3        &kp F4        &kp F5        &kp F6       &kp F7       &kp F8       &kp F9       &kp F10      &kp DEL
+        &kp TAB       &kp F11       &kp F12      &none         &none         &none         &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &kp END      &kp PG_UP
+        &none         &none         &none        &none         &none         &none         &kp HOME     &kp END      &none        &none        &none        &kp PG_DN
+                                                 &kp LCTRL     &kp LSHIFT    &kp SPACE     &kp ENTER    &kp RSHIFT   &kp BKSP
+      >;
+    };
+
+    // Number Layer
+    // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    // │    ESC      │     1       │     2       │     3       │     4       │     5       │   │     6       │     7       │     8       │     9       │     0       │    DEL      │
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    // │    TAB      │    ESC      │    TAB      │   MINUS     │  PLUS       │   SLASH     │   │   ASTERISK  │   PERCENT   │   EQUALS    │    DOT      │   COMMA     │    none     │
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    // │    none     │    none     │    LALT     │    none     │    none     │    none     │   │    LEFT     │    DOWN     │     UP      │    RIGHT    │    none     │    none     │
+    // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+    //                                            │    LCTRL    │   LSHIFT    │    Space    │   │    Enter    │   RSHIFT    │   Bksp      │
+    //                                            ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+
+    number_layer {
+      bindings = <
+        &kp ESC       &kp N1        &kp N2       &kp N3        &kp N4        &kp N5        &kp N6       &kp N7       &kp N8       &kp N9       &kp N0       &kp DEL
+        &kp TAB       &kp ESC       &kp TAB      &kp MINUS     &kp PLUS      &kp SLASH     &kp ASTERISK &kp PERCENT  &kp EQUAL    &kp DOT      &kp COMMA    &none
+        &none         &none         &kp LALT     &none         &none         &none         &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &none        &none
+                                                 &kp LCTRL     &kp LSHIFT    &kp SPACE     &kp ENTER    &kp RSHIFT   &kp BKSP
+      >;
+    };
+  };
+
+
+};
+// Root devicetree node end
