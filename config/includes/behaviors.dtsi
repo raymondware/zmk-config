@@ -1,9 +1,35 @@
-/* KEY POSITIONS (using keypos_def helpers)
-╭─────────────────────┬─────────────────────╮
-│ LT4 LT3 LT2 LT1 LT0 │ RT0 RT1 RT2 RT3 RT4 │
-│ LM4 LM3 LM2 LM1 LM0 │ RM0 RM1 RM2 RM3 RM4 │
-│ LB4 LB3 LB2 LB1 LB0 │ RB0 RB1 RB2 RB3 RB4 │
-╰───────╮ LH2 LH1 LH0 │ RH0 RH1 RH2 ╭───────╯
-        ╰─────────────┴─────────────╯       */
+/* SPDX-License-Identifier: MIT */
+&mt { tapping-term-ms = <400>; };
 
+/ {
+    hm: homerow_mods {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        tapping-term-ms = <400>;
+        quick-tap-ms = <0>;
+        flavor = "tap-preferred";
+        bindings = <&kp>, <&kp>;
+    };
 
+    macros {
+        /* Release Ctrl before sending the tmux command. No shell commands. */
+        tmux_previous: tmux_previous {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp B>,
+                       <&macro_release &kp LCTRL>, <&macro_tap &kp P>;
+        };
+        tmux_next: tmux_next {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp B>,
+                       <&macro_release &kp LCTRL>, <&macro_tap &kp N>;
+        };
+        tmux_zoom: tmux_zoom {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp B>,
+                       <&macro_release &kp LCTRL>, <&macro_tap &kp Z>;
+        };
+    };
+};
