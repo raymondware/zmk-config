@@ -1,9 +1,62 @@
-/* KEY POSITIONS (using keypos_def helpers)
-╭─────────────────────┬─────────────────────╮
-│ LT4 LT3 LT2 LT1 LT0 │ RT0 RT1 RT2 RT3 RT4 │
-│ LM4 LM3 LM2 LM1 LM0 │ RM0 RM1 RM2 RM3 RM4 │
-│ LB4 LB3 LB2 LB1 LB0 │ RB0 RB1 RB2 RB3 RB4 │
-╰───────╮ LH2 LH1 LH0 │ RH0 RH1 RH2 ╭───────╯
-        ╰─────────────┴─────────────╯       */
+/* SPDX-License-Identifier: MIT */
+&mt { tapping-term-ms = <400>; };
 
+/ {
+    hm: homerow_mods {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        tapping-term-ms = <400>;
+        quick-tap-ms = <0>;
+        flavor = "tap-preferred";
+        bindings = <&kp>, <&kp>;
+    };
 
+    behaviors {
+        /* Mask physically held modifiers per queued tap, not around the whole
+         * asynchronous macro. The prefix's implicit Ctrl survives the mask;
+         * command letters remain unmodified and physical mods stay held.
+         */
+        tmux_prefix: tmux_prefix {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <0xff>;
+            bindings = <&kp LC(B)>, <&kp LC(B)>;
+        };
+        tmux_p: tmux_p {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <0xff>;
+            bindings = <&kp P>, <&kp P>;
+        };
+        tmux_n: tmux_n {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <0xff>;
+            bindings = <&kp N>, <&kp N>;
+        };
+        tmux_z: tmux_z {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <0xff>;
+            bindings = <&kp Z>, <&kp Z>;
+        };
+    };
+
+    macros {
+        tmux_previous: tmux_previous {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &tmux_prefix &tmux_p>;
+        };
+        tmux_next: tmux_next {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &tmux_prefix &tmux_n>;
+        };
+        tmux_zoom: tmux_zoom {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &tmux_prefix &tmux_z>;
+        };
+    };
+};

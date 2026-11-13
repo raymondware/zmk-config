@@ -1,9 +1,51 @@
-/* KEY POSITIONS (using keypos_def helpers)
-╭─────────────────────┬─────────────────────╮
-│ LT4 LT3 LT2 LT1 LT0 │ RT0 RT1 RT2 RT3 RT4 │
-│ LM4 LM3 LM2 LM1 LM0 │ RM0 RM1 RM2 RM3 RM4 │
-│ LB4 LB3 LB2 LB1 LB0 │ RB0 RB1 RB2 RB3 RB4 │
-╰───────╮ LH2 LH1 LH0 │ RH0 RH1 RH2 ╭───────╯
-        ╰─────────────┴─────────────╯       */
+/* SPDX-License-Identifier: MIT */
+/ {
+    combos {
+        compatible = "zmk,combos";
 
+        /* Familiar utility/modifier chords stay on BASE. Layer-specific
+         * functions must not be intercepted by their physical letter chords.
+         */
+        combo_esc { timeout-ms = <50>; key-positions = <LT4 LT3>; layers = <DEF>; bindings = <&kp ESC>; };
+        combo_lshift_sticky { timeout-ms = <50>; key-positions = <LM4 LM3>; layers = <DEF>; bindings = <&sk LSHIFT>; };
+        combo_rshift_sticky { timeout-ms = <50>; key-positions = <RM4 RM3>; layers = <DEF>; bindings = <&sk RSHIFT>; };
+        combo_tab { timeout-ms = <50>; key-positions = <LM3 LM2>; layers = <DEF>; bindings = <&kp TAB>; };
+        combo_lctrl { timeout-ms = <50>; key-positions = <LB4 LB3>; layers = <DEF>; bindings = <&kp LCTRL>; };
+        combo_rctrl { timeout-ms = <50>; key-positions = <RB4 RB3>; layers = <DEF>; bindings = <&kp RCTRL>; };
+        combo_lalt { timeout-ms = <50>; key-positions = <LB3 LB2>; layers = <DEF>; bindings = <&kp LALT>; };
+        combo_lgui { timeout-ms = <50>; key-positions = <LM4 LB4>; layers = <DEF>; bindings = <&kp LGUI>; };
+        combo_rbspc { timeout-ms = <50>; key-positions = <RT4 RT3>; layers = <DEF>; bindings = <&kp BACKSPACE>; };
 
+        combo_nav { timeout-ms = <50>; key-positions = <RB1 RB2>; layers = <DEF>; bindings = <&to NAV>; };
+        combo_sym { timeout-ms = <50>; key-positions = <RB0 RB1>; layers = <DEF>; bindings = <&to SYM>; };
+        combo_num { timeout-ms = <50>; key-positions = <RB2 RB3>; layers = <DEF>; bindings = <&to NUMB>; };
+
+        /* Deliberate new chords; typing pauses and tight chord windows reduce
+         * accidental rolls but still need a real typing trial on the keyboard.
+         */
+        combo_enter {
+            timeout-ms = <35>; require-prior-idle-ms = <150>;
+            key-positions = <RM1 RM2>; layers = <DEF>; bindings = <&kp ENTER>;
+        };
+        combo_delete {
+            timeout-ms = <35>; require-prior-idle-ms = <150>;
+            key-positions = <RM2 RM3>; layers = <DEF>; bindings = <&kp DELETE>;
+        };
+        combo_caps_word {
+            timeout-ms = <35>; require-prior-idle-ms = <150>;
+            key-positions = <LT3 LT2 LT1>; layers = <DEF>; bindings = <&caps_word>;
+        };
+        combo_sys {
+            timeout-ms = <35>; require-prior-idle-ms = <150>;
+            key-positions = <RT1 RT2 RT3>; layers = <DEF>; bindings = <&to SYS>;
+        };
+
+        /* Keep the existing two-thumb GUI chord, including during layer entry.
+         * SYS deliberately uses another chord instead of stealing this one.
+         */
+        combo_gui {
+            timeout-ms = <50>; key-positions = <LH1 RH1>;
+            layers = <DEF NAV SYM NUMB SYS>; bindings = <&kp LGUI>;
+        };
+    };
+};
