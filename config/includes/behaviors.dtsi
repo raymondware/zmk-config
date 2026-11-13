@@ -11,25 +11,52 @@
         bindings = <&kp>, <&kp>;
     };
 
+    behaviors {
+        /* Mask physically held modifiers per queued tap, not around the whole
+         * asynchronous macro. The prefix's implicit Ctrl survives the mask;
+         * command letters remain unmodified and physical mods stay held.
+         */
+        tmux_prefix: tmux_prefix {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <0xff>;
+            bindings = <&kp LC(B)>, <&kp LC(B)>;
+        };
+        tmux_p: tmux_p {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <0xff>;
+            bindings = <&kp P>, <&kp P>;
+        };
+        tmux_n: tmux_n {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <0xff>;
+            bindings = <&kp N>, <&kp N>;
+        };
+        tmux_z: tmux_z {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            mods = <0xff>;
+            bindings = <&kp Z>, <&kp Z>;
+        };
+    };
+
     macros {
-        /* Release Ctrl before sending the tmux command. No shell commands. */
         tmux_previous: tmux_previous {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp B>,
-                       <&macro_release &kp LCTRL>, <&macro_tap &kp P>;
+            bindings = <&macro_tap &tmux_prefix &tmux_p>;
         };
         tmux_next: tmux_next {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp B>,
-                       <&macro_release &kp LCTRL>, <&macro_tap &kp N>;
+            bindings = <&macro_tap &tmux_prefix &tmux_n>;
         };
         tmux_zoom: tmux_zoom {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>, <&macro_tap &kp B>,
-                       <&macro_release &kp LCTRL>, <&macro_tap &kp Z>;
+            bindings = <&macro_tap &tmux_prefix &tmux_z>;
         };
     };
 };

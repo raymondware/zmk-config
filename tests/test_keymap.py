@@ -93,11 +93,13 @@ class KeymapTests(unittest.TestCase):
         matrix = (ROOT / 'build.yaml').read_text()
         self.assertEqual(re.findall(r'^\s+- board:\s*(\S+)', matrix, re.M), ['nice_nano//zmk', 'nice_nano//zmk'])
 
-    def test_tmux_macros_release_prefix_before_command(self):
-        for name, key in (('tmux_previous', 'P'), ('tmux_next', 'N'), ('tmux_zoom', 'Z')):
-            body = re.search(name+r'\s*\{(.*?)\};', self.text, re.S)[1]
-            self.assertLess(body.index('&macro_release &kp LCTRL'), body.index('&macro_tap &kp '+key))
-            self.assertIn('&macro_tap &kp B', body)
+    def test_tmux_macros_use_individually_masked_prefix_and_command_taps(self):
+        for name, key in (('tmux_previous', 'p'), ('tmux_next', 'n'), ('tmux_zoom', 'z')):
+            match = re.search(name+r'\s*\{(.*?)\};', self.text, re.S)
+            self.assertIsNotNone(match)
+            body = match[1]
+            self.assertIn('&macro_tap &tmux_prefix &tmux_'+key, body)
+            self.assertNotIn('&macro_press', body)
 
 
 if __name__ == '__main__':
